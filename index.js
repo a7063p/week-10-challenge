@@ -4,6 +4,7 @@ const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 
+
 const employees = []
 const managers = []
 const engineers = []
@@ -31,7 +32,7 @@ inquirer
     }
 
 ])  
-    .then(({type, name, email, officeNumber}) =>{
+    .then(({type, name, email,}) =>{
         if (type === 'Manager'){
             inquirer
             .prompt([
@@ -40,28 +41,134 @@ inquirer
                 name: 'officePhone',
                 message: 'Please Enter your office phone number'
                 },
-                {
+
+            ]) 
+        .then(({officePhone}) => {  
+         
+            managers.push(new Manager(name, email, officePhone)) 
+            console.log('number index', managers.length);
+            console.log('managers',managers);
+            console.log(`
+            ==============================
+            MANGER- ${name} Has Been Added
+            ==============================
+            `)
+                inquirer
+                .prompt({
                     type: 'confirm',
                     name: 'confirmAddEmployee',
                     message: 'Would you like to add another employee?',
                     default: 'yes'
-                                       
+                })
+                .then(({confirmAddEmployee})=>{
+                    if(confirmAddEmployee) {
+                        generator()
+                    } else {
+                        return
+                    }
+                })
+        })         
+    } 
+        
+        else if(type === 'Engineer'){
+        inquirer
+        .prompt([
+            {
+                type: 'text',
+                name: 'github',
+                message: 'Enter your GitHub userName:'
+            }
+        ])
+            .then(({github}) => {
+            engineers.push(new Engineer(name, email, github));
+            console.log('number index', engineers.length);
+            console.log('engineer',engineers);
+            console.log(`
+            ================================
+            ENGINEER- ${name} Has Been Added
+            ================================
+            `);
+            inquirer
+            .prompt({
+                type: 'confirm',
+                name: 'confirmAddEmployee',
+                message: 'Would you like to add another employee?',
+                default: 'yes'
+            })
+            .then(({confirmAddEmployee})=>{
+                if(confirmAddEmployee) {
+                    generator()
+                } else {
+                return
                 }
+            })
+        })
 
-            ])
-                managers.push(new Manager(name, email,officeNumber)) 
-                console.log('number index', managers.length);
-           
-        }
-        
- 
-    
-        
-    })  
+        } else if(type === 'Intern') {
+            inquirer
+        .prompt([
+            {
+                type: 'text',
+                name: 'school',
+                message: 'Enter your school:'
+            }
+        ])
+            .then(({school}) => {
+            interns.push(new Intern(name, email, school));
+            console.log('number index', interns.length);
+            console.log('intern',interns);
+            console.log(`
+            ===============================
+            INTERN- ${name} Has Been Added
+            ===============================
+            `);
+            inquirer
+            .prompt({
+                type: 'confirm',
+                name: 'confirmAddEmployee',
+                message: 'Would you like to add another employee?',
+                default: 'yes'
+            })
+            .then(({confirmAddEmployee})=>{
+                if(confirmAddEmployee) {
+                    generator()
+                    } else {
+                        return
+                    }
+                })
+            })
+
+        } else {
+            employees.push(new Employee(name,email));
+            console.log('number index', employees.length);
+            console.log('employee',employees);
+            console.log(`
+            ===============================
+            Employee- ${name} Has Been Added
+            ===============================
+            `);
+            inquirer
+            .prompt({
+                type: 'confirm',
+                name: 'confirmAddEmployee',
+                message: 'Would you like to add another employee?',
+                default: 'yes'
+            })
+            .then(({confirmAddEmployee})=>{
+                if(confirmAddEmployee) {
+                    generator()
+                    } else {
+                        return
+                    }
+                })            
+
+        }      
+    })         
 }    
 
 generator()
 
+module.exports = generator
 
 
 
