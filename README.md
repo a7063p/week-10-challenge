@@ -22,7 +22,7 @@
   ## Usage
   Once the required packages are installed utilize the command prompt and enter node index.js to start the application 
 
-  ![image](../image/img.PNG)  
+  ![image](image/image.PNG)  
   
   ## Languages  
   ![language](https://img.shields.io/badge/JavaScript-critical)  ![language](https://img.shields.io/badge/HTML-critical)  ![language](https://img.shields.io/badge/ES6-critical)  ![language](https://img.shields.io/badge/Bootstrap-critical)  ![language](https://img.shields.io/badge/Node-critical)  ![language](https://img.shields.io/badge/Jest-critical)  
