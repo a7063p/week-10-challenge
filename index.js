@@ -7,11 +7,11 @@ const writeToFile = require('./src/generateHtml');
 const generatePage = require('./src/page-template');
 
 
-const employees = []
-const managers = []
-const engineers = []
-const interns = []
-const employeeArr = {managers, engineers,interns,employees}
+const employees = [];
+const managers = [];
+const engineers = [];
+const interns = [];
+const company = {managers, engineers, interns, employees};
 
 
 function generator () {
@@ -20,35 +20,40 @@ function generator () {
         {
             type: 'list',
             name: 'type',
-            message: 'Please Select the type of Employee',
-            choices: ['Employee', 'Manager', 'Engineer', 'Intern']
+            message: 'Please Select the type of Employee:',
+            choices: ['Manager', 'Engineer', 'Employee', 'Intern']
         },
         {
         type:'text',
         name: 'name',
-        message: 'Please Enter Your Name'
+        message: 'Please Enter Your Name:'
+        },
+        {
+        type:'text',
+        name: 'id',
+        message:"Please enter employees ID number:"
         },
         {
         type:'text',
         name: 'email',
-        message: "Please enter employee's email"
+        message: "Please enter employee's email:"
         }
     
     ])  
-        .then(({type, name, email,}) =>{
+        .then(({type, id, name, email,}) =>{
             if (type === 'Manager'){
-                inquirer
+                return inquirer
                 .prompt([
                     {
                     type: 'text',
-                    name: 'officePhone',
+                    name: 'officeNumber',
                     message: 'Please Enter your office phone number'
                     },
     
                 ]) 
-            .then(({officePhone}) => {  
+            .then(({officeNumber}) => {  
              
-                managers.push(new Manager(type,name, email, officePhone)) 
+                managers.push(new Manager(type, id, name, email, officeNumber)) 
                 
                 console.log(`
                 ==============================
@@ -82,7 +87,7 @@ function generator () {
                 }
             ])
                 .then(({github}) => {
-               
+                engineers.push(new Engineer(type, id, name, email, github))
                 console.log(`
                 ================================
                 ENGINEER- ${name} Has Been Added
@@ -97,7 +102,7 @@ function generator () {
                 })
                 .then(({confirmAddEmployee})=>{
                     if(confirmAddEmployee) {
-                        return generator()
+                    return generator()
                     } else {
                     return
                     }
@@ -114,7 +119,7 @@ function generator () {
                 }
             ])
                 .then(({school}) => {
-                interns.push(new Intern(type, name, email, school));
+                interns.push(new Intern(type, id, name, email, school));
                 console.log(`
                 ===============================
                 INTERN- ${name} Has Been Added
@@ -137,7 +142,7 @@ function generator () {
                 })
     
             } else {
-                employees.push(new Employee( type, name,email));
+                employees.push(new Employee( type, id, name,email));
                 console.log(`
                 ===============================
                 Employee- ${name} Has Been Added
@@ -160,15 +165,15 @@ function generator () {
     
             }      
         })         
-    }    
+    } ;   
 
 generator()
     .then(data => {
-        return generatePage(employeeArr)
+        return generatePage(company)
     })
     .then(pageHTML => {
         return writeToFile(pageHTML)
-    })
+    });
 
 
 
