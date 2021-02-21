@@ -39,7 +39,7 @@ const engineerCards = data=> {
       <div class="card-body bg-light">
          <p class="card-text">ID: ${i.id}</p>
          <p class="card-text">Email: <a href="mailto:${i.email}">${i.email}</a></p>
-         <p class="card-text">GitHib Account: <a href="https://github.com/"${i.github}></a>${i.github}</p>    
+         <p class="card-text">GitHib Account: <a href="https://github.com/${i.github}">${i.github}</a></p>    
       </div>
       </div>
       `;   
