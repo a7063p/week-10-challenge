@@ -173,7 +173,11 @@ generator()
     })
     .then(pageHTML => {
         return writeToFile(pageHTML)
-    });
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return
+      });
 
 
 

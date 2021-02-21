@@ -14,7 +14,7 @@ const writeToFile = fileContent => {
             //  if everything is good resolve promise
             resolve({
                 ok: true,
-                message: 'File Created!'
+                message: 'Your organizational chart was Created!'
             });
         });
     });

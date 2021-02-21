@@ -38,7 +38,7 @@
 
 
   ## Contribute
-  Thsi application is open to all users wishing to positively contribute to this project
+  This application is open to all users wishing to positively contribute to this project
 
   ## Tests
   Included are links to video demonstartions of this application
