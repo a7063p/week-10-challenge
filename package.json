@@ -1,0 +1,28 @@
+{
+  "name": "week-10",
+  "version": "1.0.0",
+  "description": "Team to file Generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a7063p/week-10-challenge.git"
+  },
+  "author": "Pennucci_Andrew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a7063p/week-10-challenge/issues"
+  },
+  "homepage": "https://github.com/a7063p/week-10-challenge#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
