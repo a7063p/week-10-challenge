@@ -6,9 +6,9 @@
   
   ## Links
   
-  Video links to project:
+  Video links to project:  
   [ScreenCastify](https://drive.google.com/file/d/1P8kvDq_av9CxXD_jWb2NPmgBo4ogTnbc/view?usp=sharing)  
-  [mp4](https://drive.google.com/file/d/1TjWALcW9_5tBYmIHdC-EMOQrPj0MnssZ/view?usp=sharing)  
+  In case screencastify is blurry [mp4](https://drive.google.com/file/d/1TjWALcW9_5tBYmIHdC-EMOQrPj0MnssZ/view?usp=sharing)  
   
   ## Installation
   This application requires, NPM Inquirer and Node to be installed.
