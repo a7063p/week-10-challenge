@@ -31,10 +31,8 @@
   ## License
   ![license](https://img.shields.io/badge/license-MIT-critical)
   
-  This application currently is licensed with [MIT](./license/MIT.txt). 
-  Please click on the [link](./license/MIT.txt) to review all terms, definitions and conditions of use.
-
-  
+  This application currently is licensed with MIT
+   
 
 
   ## Contribute
